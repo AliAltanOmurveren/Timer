@@ -33,11 +33,10 @@ namespace MyTimer
                 Title = "Select The Folder To Process",
             };
             dialog.IsFolderPicker = false;
-            //dialog.Filters.Add(new CommonFileDialogFilter("JSON file", "*.json"));
             CommonFileDialogResult result = dialog.ShowDialog();
 
             //Console.WriteLine(dialog.FileName);
-
+            
             using (StreamReader r = new StreamReader(dialog.FileName))
             {
                 //string path = r.ReadToEnd();
@@ -48,6 +47,7 @@ namespace MyTimer
                     s.WriteLine(dialog.FileName);
                 }
             }
+
         }
     }
 }

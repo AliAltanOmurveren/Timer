@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using System.IO;
 using Newtonsoft.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,27 @@ namespace MyTimer
         public MainWindow()
         {
             InitializeComponent();
+            List<string> durations;
+            try
+            {
+
+                using (StreamReader s = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\json_location.txt"))
+                {
+                    string json = s.ReadToEnd();
+                    durations = JsonConvert.DeserializeObject<List<string>>(json);
+                }
+
+                foreach(string s in durations)
+                {
+                    cb_water_durations.Items.Add(s);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            
 
             time_bar.Width = 0;
             water_bar.Width = 0;
@@ -53,6 +75,7 @@ namespace MyTimer
             cb_water_durations.Items.Add("00:20:00");
             cb_water_durations.Items.Add("00:30:00");
             cb_water_durations.Items.Add("00:45:00");
+            cb_water_durations.Items.Add("00:00:30");
 
             cb_durations.SelectedIndex = 0;
 
@@ -214,21 +237,20 @@ namespace MyTimer
             water_bar_width_interval = 400 / water_time.TotalSeconds;
         }
 
-        private void Json_button_MouseEnter(object sender, MouseEventArgs e)
+        private void Settings_button_MouseEnter(object sender, MouseEventArgs e)
         {
             SolidColorBrush col = new SolidColorBrush();
-            col.Color = Colors.DarkRed;
-            Json_button.Fill = col;
+            col.Color = Colors.DarkGreen;
+            settings_button.Fill = col;
         }
 
-        private void Json_button_MouseLeave(object sender, MouseEventArgs e)
+        private void Settings_button_MouseLeave(object sender, MouseEventArgs e)
         {
-            SolidColorBrush col = new SolidColorBrush();
-            col.Color = Colors.Salmon;
-            Json_button.Fill = col;
+            SolidColorBrush col = (SolidColorBrush)FindResource("app_background_color");
+            settings_button.Fill = col;
         }
 
-        private void Json_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Settings_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             json_folder jf = new json_folder();
             jf.ShowInTaskbar = false;

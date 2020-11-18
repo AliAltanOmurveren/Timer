@@ -53,18 +53,22 @@
 
         <Rectangle HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="4" Fill="#FF09C198" Grid.RowSpan="1"
                    MouseLeftButtonDown="water_timer_event"/>
-        <Rectangle x:Name="water_bar" Fill="#FF10F4FF" HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="400" MaxWidth="20" Grid.RowSpan="1"
+        <Rectangle x:Name="water_bar" Fill="#FF10F4FF" HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="20" MaxWidth="400" 
                    Grid.ColumnSpan="4"
                    MouseLeftButtonDown="water_timer_event"/>
         <Label x:Name="water_time_label" Content="00:00" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" Margin="12.5,2.5"/>
         <Label Content="Normal Timer:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="90" Margin="5,0" HorizontalContentAlignment="Center"/>
         <Label Content="Water Timer:" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center"/>
 
-        <Grid   Grid.Column="3" HorizontalAlignment="Center" Height="15" Margin="40,2,45,8" VerticalAlignment="Center" Width="15"
-              MouseEnter="Json_button_MouseEnter" MouseLeave="Json_button_MouseLeave" MouseLeftButtonDown="Json_button_MouseLeftButtonDown">
-            <Rectangle x:Name="Json_button" Fill="Salmon"/>
-            
-            <TextBlock Text="JS" Width="15" Height="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" TextAlignment="Center" Margin="0" Padding="0,0,0,8" />
+        <Grid   Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="1,1,15,1" VerticalAlignment="Center" Width="23"
+              MouseEnter="Settings_button_MouseEnter" MouseLeave="Settings_button_MouseLeave" MouseLeftButtonDown="Settings_button_MouseLeftButtonDown">
+            <Rectangle x:Name="settings_button" Fill="{DynamicResource app_background_color}"/>
+
+            <Image>
+                <Image.Source>
+                    <BitmapImage DecodePixelWidth="600" UriSource="/Images/gear_icon.png"/>
+                </Image.Source>
+            </Image>
 
 
 
