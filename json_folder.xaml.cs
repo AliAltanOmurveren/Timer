@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
 
 namespace MyTimer
 {
@@ -22,6 +24,30 @@ namespace MyTimer
         public json_folder()
         {
             InitializeComponent();
+
+            var dialog = new CommonOpenFileDialog() {
+                EnsurePathExists = true,
+                EnsureFileExists = false,
+                AllowNonFileSystemItems = true,
+                DefaultFileName = "Select Folder",
+                Title = "Select The Folder To Process",
+            };
+            dialog.IsFolderPicker = false;
+            //dialog.Filters.Add(new CommonFileDialogFilter("JSON file", "*.json"));
+            CommonFileDialogResult result = dialog.ShowDialog();
+
+            //Console.WriteLine(dialog.FileName);
+
+            using (StreamReader r = new StreamReader(dialog.FileName))
+            {
+                //string path = r.ReadToEnd();
+
+                using (StreamWriter s = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "\\json_location.txt"))
+                {
+                    s.Write("");
+                    s.WriteLine(dialog.FileName);
+                }
+            }
         }
     }
 }
