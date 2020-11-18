@@ -1,0 +1,65 @@
+﻿<Window x:Class="MyTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTimer"
+        mc:Ignorable="d"
+        Title="Timer" Height="200" Width="400" Background="{DynamicResource app_background_color}" ResizeMode="CanMinimize" WindowStyle="None">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="time_label" Content="00:00:00" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45"/>
+        <Button x:Name="stop_button" Grid.Column="2" Grid.Row="4" Content="Stop" BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
+                Click="stop_button_Click"/>
+        <Button x:Name="pause_button" Grid.Column="3" Grid.Row="4" Content="Pause" BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
+                Click="pause_button_Click"/>
+
+        <Rectangle MouseDown="title_bar_MouseDown" x:Name="title_bar" Grid.ColumnSpan="4" Fill="#FFADA8B6" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Width="400" Height="25"/>
+
+        <Rectangle x:Name="close_button" Grid.Column="3" Fill="#FFDB3A34" HorizontalAlignment="Center" Height="15" Margin="80,2,5,8" VerticalAlignment="Center" Width="15" RadiusX="50" RadiusY="50"
+                   MouseEnter="close_button_MouseEnter" MouseLeave="close_button_MouseLeave" MouseLeftButtonDown="close_button_MouseLeftButtonDown"/>
+
+        <Rectangle x:Name="minimize_button" Grid.Column="3" Fill="#FFFFC857" HorizontalAlignment="Center" Height="15" Margin="60,2,25,8" 
+                   VerticalAlignment="Center" Width="15" RadiusX="50" RadiusY="50" 
+                   MouseEnter="minimize_MouseEnter" MouseLeave="minimize_MouseLeave" MouseLeftButtonDown="minimize_button_MouseLeftButtonDown"/>
+
+        <Label Content="Timer" HorizontalAlignment="Center" Margin="-17,-9,17,0" VerticalAlignment="Top" Height="34" Width="100" HorizontalContentAlignment="Center" 
+               FontWeight="Bold" FontSize="20" VerticalContentAlignment="Stretch"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="28" Grid.Row="1" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="4" Fill="#FFEFA00B"/>
+
+        <Rectangle x:Name="time_bar" Fill="#FFDB3A34" HorizontalAlignment="Left" Height="28" Grid.Row="1" VerticalAlignment="Top" Width="20" MaxWidth="400" Grid.ColumnSpan="4"/>
+
+        <ComboBox x:Name="cb_durations"  HorizontalAlignment="Left" Margin="5,25,5,5" Grid.Row="4" VerticalAlignment="Top" Width="90" BorderThickness="0" 
+                  Background="#FF1C7272" SelectionChanged="cb_durations_SelectionChanged" SelectedIndex="0"></ComboBox>
+        <ComboBox x:Name="cb_water_durations"  HorizontalAlignment="Left" Margin="5,25,5,5" Grid.Row="4" VerticalAlignment="Top" Width="90" BorderThickness="0" Grid.Column="1"
+                  Background="#FF1C7272" SelectionChanged="cb_water_durations_SelectionChanged" SelectedIndex="0">
+        </ComboBox>
+
+        <Rectangle HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="4" Fill="#FF09C198" Grid.RowSpan="1"
+                   MouseLeftButtonDown="water_timer_event"/>
+        <Rectangle x:Name="water_bar" Fill="#FF10F4FF" HorizontalAlignment="Left" Height="28" Grid.Row="2" VerticalAlignment="Top" Width="400" MaxWidth="20" Grid.RowSpan="1"
+                   Grid.ColumnSpan="4"
+                   MouseLeftButtonDown="water_timer_event"/>
+        <Label x:Name="water_time_label" Content="00:00" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" Margin="12.5,2.5"/>
+        <Label Content="Normal Timer:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="90" Margin="5,0" HorizontalContentAlignment="Center"/>
+        <Label Content="Water Timer:" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center"/>
+
+
+    </Grid>
+</Window>

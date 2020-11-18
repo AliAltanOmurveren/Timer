@@ -1,0 +1,22 @@
+﻿<Application x:Class="MyTimer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MyTimer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush Color="#FF1C7272" x:Key="button_color"/>
+        <SolidColorBrush Color="White" x:Key="button_text_color"/>
+
+        <SolidColorBrush Color="#A1E8AF" x:Key="app_background_color"/>
+
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="{StaticResource app_background_color}"/>
+        </Style> 
+        
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="{StaticResource button_color}"/>
+            <Setter Property="Foreground" Value="{StaticResource button_text_color}"/>
+        </Style>
+    </Application.Resources>
+</Application>
