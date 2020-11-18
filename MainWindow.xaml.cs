@@ -214,6 +214,28 @@ namespace MyTimer
             water_bar_width_interval = 400 / water_time.TotalSeconds;
         }
 
+        private void Json_button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush col = new SolidColorBrush();
+            col.Color = Colors.DarkRed;
+            Json_button.Fill = col;
+        }
+
+        private void Json_button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush col = new SolidColorBrush();
+            col.Color = Colors.Salmon;
+            Json_button.Fill = col;
+        }
+
+        private void Json_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            json_folder jf = new json_folder();
+            jf.ShowInTaskbar = false;
+            jf.Owner = Application.Current.MainWindow;
+            jf.Show();
+        }
+
         private void stop_timer()
         {
             timer.Stop();

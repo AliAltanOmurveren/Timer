@@ -60,6 +60,14 @@
         <Label Content="Normal Timer:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="90" Margin="5,0" HorizontalContentAlignment="Center"/>
         <Label Content="Water Timer:" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center"/>
 
+        <Grid   Grid.Column="3" HorizontalAlignment="Center" Height="15" Margin="40,2,45,8" VerticalAlignment="Center" Width="15"
+              MouseEnter="Json_button_MouseEnter" MouseLeave="Json_button_MouseLeave" MouseLeftButtonDown="Json_button_MouseLeftButtonDown">
+            <Rectangle x:Name="Json_button" Fill="Salmon"/>
+            
+            <TextBlock Text="JS" Width="15" Height="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" TextAlignment="Center" Margin="0" Padding="0,0,0,8" />
 
+
+
+        </Grid>
     </Grid>
 </Window>
