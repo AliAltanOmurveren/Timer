@@ -34,6 +34,9 @@ namespace MyTimer
             };
             dialog.IsFolderPicker = false;
 
+            tbox_glass_ml.Text = Properties.Settings.Default.Glass_ml.ToString();
+            tbox_json_location.Text = Properties.Settings.Default.Durations_file;
+
 
 
             //CommonFileDialogResult result = dialog.ShowDialog();
@@ -73,11 +76,16 @@ namespace MyTimer
 
         private void open_folder_btn_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(74, 118, 82);
+            open_folder_btn.Background = brush;
         }
 
         private void open_folder_btn_MouseLeave(object sender, MouseEventArgs e)
         {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(128, 191, 140);
+            open_folder_btn.Background = brush;
 
         }
 

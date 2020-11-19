@@ -23,7 +23,7 @@
 
         <Label Content="Location of durations file (JSON):" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="DemiBold" Margin="5,0,0,0"/>
         <TextBox x:Name="tbox_json_location" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,25,10,10"
-                 Text="C:\Users\User\Documents\Projects\C#\MyTimer\Images" Padding="5,3,5,3"/>
+                 Text="" Padding="5,3,5,3"/>
 
         
         <Grid x:Name="open_folder_btn" Grid.Row="0" Grid.Column="3" 
@@ -40,7 +40,7 @@
 
 
         <Label Content="Glass ml:" Grid.Row="1" FontWeight="DemiBold" Margin="5,0,0,0"/>
-        <TextBox x:Name="tbox_glass_ml" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,25,10,10"
+        <TextBox x:Name="tbox_glass_ml" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,25,10,10" Padding="5,3,5,3"
                  KeyDown="tbox_glass_ml_KeyDown"/>
 
         <Button x:Name="save_btn" Content="Save"

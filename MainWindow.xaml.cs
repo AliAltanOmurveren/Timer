@@ -56,7 +56,9 @@ namespace MyTimer
 
             }
 
-            
+            num_g = RetrieveGlassCountFromSettings();
+            num_glass.Text = num_g.ToString();
+
 
             time_bar.Width = 0;
             water_bar.Width = 0;
@@ -279,6 +281,8 @@ namespace MyTimer
             num_g = int.Parse(num_glass.Text);
             num_g++;
             num_glass.Text = num_g.ToString();
+            Properties.Settings.Default.Glass_count = num_g;
+            Properties.Settings.Default.Save();
         }
 
         private void minus_button_MouseEnter(object sender, MouseEventArgs e)
@@ -300,6 +304,8 @@ namespace MyTimer
             num_g = int.Parse(num_glass.Text);
             num_g = num_g <= 0 ? 0 : num_g - 1;
             num_glass.Text = num_g.ToString();
+            Properties.Settings.Default.Glass_count = num_g;
+            Properties.Settings.Default.Save();
         }
 
 
@@ -341,5 +347,27 @@ namespace MyTimer
             stop_button.Content = "Stop";
             pause_button.Content = "Pause";
         }
+
+        private int RetrieveGlassCountFromSettings()
+        {
+            if(DateTime.Now.Day == Properties.Settings.Default.Day &&
+                DateTime.Now.Month == Properties.Settings.Default.Month &&
+                DateTime.Now.Year == Properties.Settings.Default.Year)
+            {
+                return Properties.Settings.Default.Glass_count;
+            }
+            else
+            {
+                Properties.Settings.Default.Glass_count = 0;
+                Properties.Settings.Default.Day = DateTime.Now.Day;
+                Properties.Settings.Default.Month = DateTime.Now.Month;
+                Properties.Settings.Default.Year = DateTime.Now.Year;
+
+                Properties.Settings.Default.Save();
+
+                return 0;
+            }
+        }
+
     }
 }

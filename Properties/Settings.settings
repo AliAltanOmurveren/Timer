@@ -1,7 +1,24 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MyTimer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Glass_ml" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">170</Value>
+    </Setting>
+    <Setting Name="Durations_file" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Day" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">19</Value>
+    </Setting>
+    <Setting Name="Month" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">11</Value>
+    </Setting>
+    <Setting Name="Glass_count" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="Year" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2020</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
