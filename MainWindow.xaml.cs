@@ -21,6 +21,9 @@ namespace MyTimer
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+
     public partial class MainWindow : Window
     {
         TimeSpan time, water_time;
@@ -36,50 +39,41 @@ namespace MyTimer
         public MainWindow()
         {
             InitializeComponent();
-            List<string> durations;
+
+            Dictionary<string, List<string>> durations;
+                
             try
             {
 
-                using (StreamReader s = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\json_location.txt"))
+                using (StreamReader s = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\json_durations.json"))
                 {
                     string json = s.ReadToEnd();
-                    durations = JsonConvert.DeserializeObject<List<string>>(json);
+                    durations = JsonConvert.DeserializeObject< Dictionary<string, List<string>>> (json);
                 }
 
-                foreach(string s in durations)
+
+                foreach (string s in durations["waterDurations"])
                 {
                     cb_water_durations.Items.Add(s);
+                }
+
+                foreach (string s in durations["alarmDurations"])
+                {
+                    cb_durations.Items.Add(s);
                 }
             }
             catch (Exception e)
             {
 
             }
+                
 
-            num_g = RetrieveGlassCountFromSettings();
+                num_g = RetrieveGlassCountFromSettings();
             num_glass.Text = num_g.ToString();
 
 
             time_bar.Width = 0;
             water_bar.Width = 0;
-            
-            cb_durations.Items.Add("00:15:00");
-            cb_durations.Items.Add("00:20:00");
-            cb_durations.Items.Add("00:30:00");
-            cb_durations.Items.Add("00:45:00");
-            cb_durations.Items.Add("01:00:00");
-            cb_durations.Items.Add("01:30:00");
-            cb_durations.Items.Add("02:00:00");
-            cb_durations.Items.Add("02:30:00");
-            cb_durations.Items.Add("03:00:00");
-            cb_durations.Items.Add("03:30:00");
-            cb_durations.Items.Add("04:00:00");
-
-            cb_water_durations.Items.Add("00:15:00");
-            cb_water_durations.Items.Add("00:20:00");
-            cb_water_durations.Items.Add("00:30:00");
-            cb_water_durations.Items.Add("00:45:00");
-            cb_water_durations.Items.Add("00:00:30");
 
             cb_durations.SelectedIndex = 0;
 

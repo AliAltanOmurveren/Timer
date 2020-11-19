@@ -202,9 +202,9 @@
     <Resource Include="Images\folder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="json_location.txt">
+    <None Include="json_durations.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="normal_alarm.wav" />
     <Resource Include="water_alarm.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
