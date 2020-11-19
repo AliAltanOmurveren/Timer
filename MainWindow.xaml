@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTimer"
         mc:Ignorable="d"
-        Title="Timer" Height="200" Width="400" Background="{DynamicResource app_background_color}" ResizeMode="CanMinimize" WindowStyle="None">
+        Title="Timer" Height="250" Width="400" Background="{DynamicResource app_background_color}" ResizeMode="CanMinimize" WindowStyle="None">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,6 +21,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+
         </Grid.RowDefinitions>
 
         <Label x:Name="time_label" Content="00:00:00" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45"/>
@@ -60,18 +62,42 @@
         <Label Content="Normal Timer:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="90" Margin="5,0" HorizontalContentAlignment="Center"/>
         <Label Content="Water Timer:" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center"/>
 
+        <Image x:Name="glass_image" Source="/Images/water_glass.png" Grid.Column="0" Grid.Row="5" Margin="5"/>
+        <Viewbox  Grid.Row="5" Grid.Column="1" >
+            <TextBlock x:Name="num_glass" Text="0" FontSize="40" />
+        </Viewbox>
+        
+
         <Grid   Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="1,1,15,1" VerticalAlignment="Center" Width="23"
               MouseEnter="Settings_button_MouseEnter" MouseLeave="Settings_button_MouseLeave" MouseLeftButtonDown="Settings_button_MouseLeftButtonDown">
             <Rectangle x:Name="settings_button" Fill="{DynamicResource app_background_color}"/>
 
-            <Image>
+            <Image Margin="2">
                 <Image.Source>
-                    <BitmapImage DecodePixelWidth="600" UriSource="/Images/gear_icon.png"/>
+                    <BitmapImage DecodePixelWidth="40" UriSource="/Images/filters.png"/>
                 </Image.Source>
             </Image>
-
-
-
         </Grid>
+
+        <Grid x:Name="plus_button" Grid.Row="5" Grid.Column="2" Background="#FF80BF8C" Width="35" Height="35"
+              MouseEnter="plus_button_MouseEnter" MouseLeave="plus_button_MouseLeave" MouseLeftButtonDown="plus_button_MouseLeftButtonDown">
+            
+            <Image Source="/Images/plus.png" Width="25"/>
+            
+        </Grid>
+
+        <Grid x:Name="minus_button" Grid.Row="5" Grid.Column="3" Background="#FF80BF8C" Width="35" Height="35"
+              MouseEnter="minus_button_MouseEnter" MouseLeave="minus_button_MouseLeave" MouseLeftButtonDown="minus_button_MouseLeftButtonDown">
+            
+            <Image Source="/Images/minus.png" Grid.Column="3" Grid.Row="5" Width="25"/>
+            
+        </Grid>
+
+        <Grid x:Name="lt_area" Grid.Row="5" Grid.ColumnSpan="2" Background="#00000000"
+              MouseEnter="lt_area_MouseEnter" MouseLeave="lt_area_MouseLeave" Opacity="0">
+            
+        </Grid>
+        
+
     </Grid>
 </Window>

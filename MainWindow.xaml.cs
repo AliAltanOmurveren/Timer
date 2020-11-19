@@ -31,6 +31,8 @@ namespace MyTimer
         SoundPlayer normal_alarm_player = new SoundPlayer(@"C:\Users\User\Documents\Projects\C#\MyTimer\normal_alarm.wav");
         SoundPlayer water_alarm_player = new SoundPlayer(@"C:\Users\User\Documents\Projects\C#\MyTimer\water_alarm.wav");
 
+        int num_g = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -256,6 +258,63 @@ namespace MyTimer
             jf.ShowInTaskbar = false;
             jf.Owner = Application.Current.MainWindow;
             jf.Show();
+        }
+
+        private void plus_button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(74,118,82);
+            plus_button.Background = brush;
+        }
+
+        private void plus_button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(128, 191, 140);
+            plus_button.Background = brush;
+        }
+
+        private void plus_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            num_g = int.Parse(num_glass.Text);
+            num_g++;
+            num_glass.Text = num_g.ToString();
+        }
+
+        private void minus_button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(74, 118, 82);
+            minus_button.Background = brush;
+        }
+
+        private void minus_button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush brush = new SolidColorBrush();
+            brush.Color = Color.FromRgb(128, 191, 140);
+            minus_button.Background = brush;
+        }
+
+        private void minus_button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            num_g = int.Parse(num_glass.Text);
+            num_g = num_g <= 0 ? 0 : num_g - 1;
+            num_glass.Text = num_g.ToString();
+        }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void lt_area_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void lt_area_MouseLeave(object sender, MouseEventArgs e)
+        {
+
         }
 
         private void stop_timer()
