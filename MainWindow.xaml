@@ -62,11 +62,6 @@
         <Label Content="Normal Timer:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="90" Margin="5,0" HorizontalContentAlignment="Center"/>
         <Label Content="Water Timer:" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.Row="4" VerticalAlignment="Top" Width="90" HorizontalContentAlignment="Center"/>
 
-        <Image x:Name="glass_image" Source="/Images/water_glass.png" Grid.Column="0" Grid.Row="5" Margin="5"/>
-        <Viewbox  Grid.Row="5" Grid.Column="1" >
-            <TextBlock x:Name="num_glass" Text="0" FontSize="40" />
-        </Viewbox>
-        
 
         <Grid   Grid.Column="3" HorizontalAlignment="Center" Height="23" Margin="1,1,15,1" VerticalAlignment="Center" Width="23"
               MouseEnter="Settings_button_MouseEnter" MouseLeave="Settings_button_MouseLeave" MouseLeftButtonDown="Settings_button_MouseLeftButtonDown">
@@ -88,16 +83,22 @@
 
         <Grid x:Name="minus_button" Grid.Row="5" Grid.Column="3" Background="#FF80BF8C" Width="35" Height="35"
               MouseEnter="minus_button_MouseEnter" MouseLeave="minus_button_MouseLeave" MouseLeftButtonDown="minus_button_MouseLeftButtonDown">
-            
+
             <Image Source="/Images/minus.png" Grid.Column="3" Grid.Row="5" Width="25"/>
-            
+
         </Grid>
+        <Image x:Name="glass_image" Source="/Images/water_glass.png" Grid.Column="0" Grid.Row="5" Margin="5"/>
+
+        <Viewbox x:Name="lt_text"  Grid.Row="5" Grid.Column="0" Visibility="Hidden">
+            <TextBlock Text="Lt:" FontSize="40" />
+        </Viewbox>
+
+        <Viewbox  Grid.Row="5" Grid.Column="1" >
+            <TextBlock x:Name="num_glass" Text="0" FontSize="40" />
+        </Viewbox>
 
         <Grid x:Name="lt_area" Grid.Row="5" Grid.ColumnSpan="2" Background="#00000000"
-              MouseEnter="lt_area_MouseEnter" MouseLeave="lt_area_MouseLeave" Opacity="0">
-            
-        </Grid>
-        
+              MouseEnter="lt_area_MouseEnter" MouseLeave="lt_area_MouseLeave" Opacity="0"/>
 
     </Grid>
 </Window>

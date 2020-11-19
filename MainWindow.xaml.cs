@@ -302,19 +302,23 @@ namespace MyTimer
             num_glass.Text = num_g.ToString();
         }
 
-        private void Grid_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void lt_area_MouseEnter(object sender, MouseEventArgs e)
         {
+            glass_image.Visibility = Visibility.Hidden;
+            lt_text.Visibility = Visibility.Visible;
 
+            float l = (num_g * 170.0f) / 1000.0f;
+
+            num_glass.Text = l.ToString();
         }
 
         private void lt_area_MouseLeave(object sender, MouseEventArgs e)
         {
+            glass_image.Visibility = Visibility.Visible;
+            lt_text.Visibility = Visibility.Hidden;
 
+            num_glass.Text = num_g.ToString();
         }
 
         private void stop_timer()
