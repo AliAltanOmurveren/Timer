@@ -199,6 +199,9 @@
     <Resource Include="Images\plus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Content Include="json_location.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

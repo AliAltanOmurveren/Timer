@@ -33,10 +33,14 @@ namespace MyTimer
                 Title = "Select The Folder To Process",
             };
             dialog.IsFolderPicker = false;
-            CommonFileDialogResult result = dialog.ShowDialog();
+
+
+
+            //CommonFileDialogResult result = dialog.ShowDialog();
 
             //Console.WriteLine(dialog.FileName);
             
+            /*
             using (StreamReader r = new StreamReader(dialog.FileName))
             {
                 //string path = r.ReadToEnd();
@@ -47,6 +51,38 @@ namespace MyTimer
                     s.WriteLine(dialog.FileName);
                 }
             }
+
+            */
+
+        }
+
+        private void save_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void cancel_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void tbox_glass_ml_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void open_folder_btn_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void open_folder_btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void open_folder_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
 
         }
     }

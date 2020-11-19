@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTimer"
         mc:Ignorable="d"
-        Title="json_folder" Height="200" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="json_folder" Height="250" Width="400" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Location of durations file (JSON):" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontWeight="DemiBold" Margin="5,0,0,0"/>
+        <TextBox x:Name="tbox_json_location" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,25,10,10"
+                 Text="C:\Users\User\Documents\Projects\C#\MyTimer\Images" Padding="5,3,5,3"/>
+
         
+        <Grid x:Name="open_folder_btn" Grid.Row="0" Grid.Column="3" 
+              Background="#FF80BF8C" Margin="20,10,20,10"
+              MouseEnter="open_folder_btn_MouseEnter" MouseLeave="open_folder_btn_MouseLeave" MouseLeftButtonDown="open_folder_btn_MouseLeftButtonDown">
+
+            <Image Margin="2" Grid.Column="3" Width="50">
+                <Image.Source>
+                    <BitmapImage DecodePixelWidth="64" UriSource="/Images/folder.png"/>
+                </Image.Source>
+            </Image>
+
+        </Grid>
+
+
+        <Label Content="Glass ml:" Grid.Row="1" FontWeight="DemiBold" Margin="5,0,0,0"/>
+        <TextBox x:Name="tbox_glass_ml" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,25,10,10"
+                 KeyDown="tbox_glass_ml_KeyDown"/>
+
+        <Button x:Name="save_btn" Content="Save"
+                BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
+                Grid.Row="3" Grid.Column="2"
+                MouseLeftButtonDown="save_btn_MouseLeftButtonDown"/>
+
+        <Button x:Name="cancel_btn" Content="Cancel"
+                BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
+                Grid.Row="3" Grid.Column="3"
+                MouseLeftButtonDown="cancel_btn_MouseLeftButtonDown"/>
+
     </Grid>
 </Window>
