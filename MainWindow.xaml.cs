@@ -40,12 +40,18 @@ namespace MyTimer
         {
             InitializeComponent();
 
+            if(Properties.Settings.Default.Durations_file == "")
+            {
+                Properties.Settings.Default.Durations_file = AppDomain.CurrentDomain.BaseDirectory + "\\json_durations.json";
+            }
+
+
             Dictionary<string, List<string>> durations;
                 
             try
             {
 
-                using (StreamReader s = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\json_durations.json"))
+                using (StreamReader s = new StreamReader(Properties.Settings.Default.Durations_file))
                 {
                     string json = s.ReadToEnd();
                     durations = JsonConvert.DeserializeObject< Dictionary<string, List<string>>> (json);
@@ -308,7 +314,7 @@ namespace MyTimer
             glass_image.Visibility = Visibility.Hidden;
             lt_text.Visibility = Visibility.Visible;
 
-            float l = (num_g * 170.0f) / 1000.0f;
+            float l = (num_g * Properties.Settings.Default.Glass_ml) / 1000.0f;
 
             num_glass.Text = l.ToString();
         }

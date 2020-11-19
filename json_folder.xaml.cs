@@ -25,6 +25,7 @@ namespace MyTimer
         {
             InitializeComponent();
 
+
             var dialog = new CommonOpenFileDialog() {
                 EnsurePathExists = true,
                 EnsureFileExists = false,
@@ -58,17 +59,6 @@ namespace MyTimer
             */
 
         }
-
-        private void save_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void cancel_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void tbox_glass_ml_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -92,6 +82,19 @@ namespace MyTimer
         private void open_folder_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void save_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Glass_ml = int.Parse(tbox_glass_ml.Text);
+            Properties.Settings.Default.Durations_file = tbox_json_location.Text;
+            Properties.Settings.Default.Save();
+            this.Close();
+        }
+
+        private void cancel_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

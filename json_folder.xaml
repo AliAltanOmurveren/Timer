@@ -46,12 +46,12 @@
         <Button x:Name="save_btn" Content="Save"
                 BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
                 Grid.Row="3" Grid.Column="2"
-                MouseLeftButtonDown="save_btn_MouseLeftButtonDown"/>
+                Click="save_btn_Click"/>
 
         <Button x:Name="cancel_btn" Content="Cancel"
                 BorderThickness="5,0,0,0" BorderBrush="#FF299C9C"
                 Grid.Row="3" Grid.Column="3"
-                MouseLeftButtonDown="cancel_btn_MouseLeftButtonDown"/>
+                Click="cancel_btn_Click"/>
 
     </Grid>
 </Window>
