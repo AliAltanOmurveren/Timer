@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,14 +27,7 @@ namespace MyTimer
             InitializeComponent();
 
 
-            var dialog = new CommonOpenFileDialog() {
-                EnsurePathExists = true,
-                EnsureFileExists = false,
-                AllowNonFileSystemItems = true,
-                DefaultFileName = "Select Folder",
-                Title = "Select The Folder To Process",
-            };
-            dialog.IsFolderPicker = false;
+            
 
             tbox_glass_ml.Text = Properties.Settings.Default.Glass_ml.ToString();
             tbox_json_location.Text = Properties.Settings.Default.Durations_file;
@@ -59,19 +53,19 @@ namespace MyTimer
             */
 
         }
-        private void tbox_glass_ml_KeyDown(object sender, KeyEventArgs e)
+        private void tbox_glass_ml_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
 
         }
 
-        private void open_folder_btn_MouseEnter(object sender, MouseEventArgs e)
+        private void open_folder_btn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             SolidColorBrush brush = new SolidColorBrush();
             brush.Color = Color.FromRgb(74, 118, 82);
             open_folder_btn.Background = brush;
         }
 
-        private void open_folder_btn_MouseLeave(object sender, MouseEventArgs e)
+        private void open_folder_btn_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
             SolidColorBrush brush = new SolidColorBrush();
             brush.Color = Color.FromRgb(128, 191, 140);
@@ -81,7 +75,37 @@ namespace MyTimer
 
         private void open_folder_btn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            string filePath;
 
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "JSON files (*.json)|*.json";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                DialogResult result = openFileDialog.ShowDialog();
+
+
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+                }
+            }
+
+            /*
+            var dialog = new CommonOpenFileDialog()
+            {
+                EnsurePathExists = true,
+                EnsureFileExists = false,
+                AllowNonFileSystemItems = true,
+                Title = "Select The Folder To Process",
+                DefaultExtension = ".json"
+            };
+            dialog.IsFolderPicker = false;
+
+            dialog.ShowDialog();
+            */
         }
 
         private void save_btn_Click(object sender, RoutedEventArgs e)

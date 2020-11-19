@@ -70,7 +70,7 @@ namespace MyTimer
             }
             catch (Exception e)
             {
-
+                e = new Exception();
             }
                 
 
